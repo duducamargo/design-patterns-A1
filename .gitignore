@@ -1,0 +1,161 @@
+############################################################
+#         GITIGNORE GLOBAL PARA PROJETOS JAVA (ROOT)       #
+#   Funciona com MULTIPLOS PROJETOS dentro do mesmo repo   #
+############################################################
+
+##############################
+# SISTEMAS OPERACIONAIS
+##############################
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+##############################
+# AMBIENTES / EDITORES
+##############################
+
+# VS Code
+.vscode/
+.history/
+*.code-workspace
+
+# IntelliJ / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+tmp/
+
+# NetBeans
+nbproject/private/
+dist/
+nbdist/
+nb-configuration.xml
+
+##############################
+# JAVA / COMPILAÇÃO
+##############################
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+##############################
+# MAVEN (multi-modules support)
+##############################
+# Build outputs
+target/
+
+# Maven wrapper
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Dependencies cache
+**/target/
+
+##############################
+# GRADLE (multi-modules support)
+##############################
+.gradle/
+build/
+**/build/
+
+# Gradle Wrapper
+gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Local environment config
+gradle-app.setting
+*.gradle.kts~
+
+##############################
+# TEST / COVERAGE
+##############################
+# JUnit / Test reports
+test-output/
+surefire-reports/
+failsafe-reports/
+
+# Coverage tools
+coverage/
+jacoco.exec
+*.lcov
+
+##############################
+# JAVA PACKAGING
+##############################
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Spring Boot devtools
+spring-devtools.properties
+
+##############################
+# LOMBOK
+##############################
+lombok.config
+
+##############################
+# CACHE / TEMP
+##############################
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+##############################
+# DATABASES / ENV
+##############################
+*.db
+*.sql
+*.sqlite
+.env
+.env.*
+!.env.example
+*.properties.local
+
+##############################
+# DOCKER / CONTAINERS
+##############################
+docker-compose.override.yml
+.docker/
+docker/
+*.pid
+
+##############################
+# JAVA MODULES (multi-module friendly)
+##############################
+**/module-info.java
+
+############################################################
+# FIM DO ARQUIVO
+############################################################

@@ -10,10 +10,10 @@ public class AlertModule implements SensorObserver {
         System.out.println("\n[Alert Module]");
 
         if (data.temperature > 35) {
-            System.out.println("⚠ Alerta: Temperatura elevada!");
+            System.out.println("Alerta: Temperatura elevada!");
         }
         if (data.pollutionIndex > 80) {
-            System.out.println("⚠ Alerta: Poluição crítica!");
+            System.out.println("Alerta: Poluição crítica!");
         }
 
         if (data.temperature <= 35 && data.pollutionIndex <= 80) {

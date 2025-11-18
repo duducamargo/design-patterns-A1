@@ -1,45 +1,44 @@
+import java.util.Scanner;
 import context.RiskCalculator;
-import strategy.AggressiveRiskStrategy;
-import strategy.ModerateRiskStrategy;
-import strategy.ConservativeRiskStrategy;
-import strategy.RiskStrategy;
+import strategy.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length == 0) {
-            System.out.println("Use: aggressive, moderate ou conservative");
-            return;
-        }
+        Scanner scanner = new Scanner(System.in);
 
-        String type = args[0].toLowerCase();
-        RiskStrategy strategy = null;
+        System.out.println("Escolha o modelo de risco:");
+        System.out.println("1 - Aggressive");
+        System.out.println("2 - Moderate");
+        System.out.println("3 - Conservative");
+        System.out.print("Opção: ");
 
-        switch (type) {
-            case "aggressive":
-                strategy = new AggressiveRiskStrategy();
-                break;
-            case "moderate":
-                strategy = new ModerateRiskStrategy();
-                break;
-            case "conservative":
-                strategy = new ConservativeRiskStrategy();
-                break;
-            default:
-                System.out.println("Modelo inválido.");
-                return;
-        }
+        int option = scanner.nextInt();
+
+        RiskStrategy strategy = switch (option) {
+            case 1 -> new AggressiveRiskStrategy();
+            case 2 -> new ModerateRiskStrategy();
+            case 3 -> new ConservativeRiskStrategy();
+            default -> {
+                System.out.println("Opção inválida!");
+                yield null;
+            }
+        };
+
+        if (strategy == null) return;
 
         RiskCalculator calculator = new RiskCalculator(strategy);
 
         double result = calculator.calculateRisk(
                 8000,      
                 150000,    
-                30,        
-                true      
+                30,       
+                true       
         );
 
-        System.out.println("Score de Risco = " + result);
+        System.out.println("Score final: " + result);
+
+        scanner.close();
     }
 }

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import core.ReportService;
 import factory.DailyReportFactory;
 import factory.WeeklyReportFactory;
@@ -7,28 +8,30 @@ public class Main {
 
     public static void main(String[] args) {
 
-        if (args.length == 0) {
-            System.out.println("Use: daily ou weekly");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Escolha o tipo de relatório:");
+        System.out.println("1 - Daily");
+        System.out.println("2 - Weekly");
+        System.out.print("Opção: ");
+
+        int option = scanner.nextInt();
+
+        ReportFactory factory = switch (option) {
+            case 1 -> new DailyReportFactory();
+            case 2 -> new WeeklyReportFactory();
+            default -> {
+                System.out.println("Opção inválida!");
+                yield null;
+            }
+        };
+
+        if (factory == null)
             return;
-        }
-
-        String type = args[0].toLowerCase();
-
-        ReportFactory factory = null;
-
-        switch(type) {
-            case "daily":
-                factory = new DailyReportFactory();
-                break;
-            case "weekly":
-                factory = new WeeklyReportFactory();
-                break;
-            default:
-                System.out.println("Tipo inválido: " + type);
-                return;
-        }
 
         ReportService service = new ReportService();
         service.generateReport(factory);
+
+        scanner.close();
     }
 }
